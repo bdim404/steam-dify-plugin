@@ -1,5 +1,7 @@
 # Steam Dify 插件
 
+[English Documentation](./README.md)
+
 一个用于集成Steam Web API功能的Dify插件，可以查询玩家信息、游戏统计、好友列表等Steam相关数据。
 
 ## 关于Steam

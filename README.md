@@ -1,5 +1,7 @@
 # Steam Dify Plugin
 
+[中文文档](./README.zh.md)
+
 A Dify plugin for integrating Steam Web API functionality to query player information, game statistics, friend lists, and other Steam-related data.
 
 ## About Steam
