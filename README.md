@@ -4,6 +4,8 @@
 
 A Dify plugin for integrating Steam Web API functionality to query player information, game statistics, friend lists, and other Steam-related data.
 
+<img src="./picture/Steam-en.png" alt="Steam插件界面" width="300"/>
+
 ## About Steam
 
 Steam is one of the largest digital game distribution platforms in the world, developed by Valve Corporation. It serves not only as a game store but also provides community features, player profiles, achievement systems, and game statistics. The Steam Web API allows developers to access this data, providing users with a richer gaming experience and data analysis capabilities.
@@ -85,4 +87,4 @@ When using this plugin, please note the following important information:
 
 **Author:** bdim  
 **Version:** 0.0.1  
-**Type:** tool plugin
+**Type:** tool

@@ -18,7 +18,7 @@ parameters:
       zh_Hans: 游戏 AppID
     human_description:
       en_US: The AppID of the game you want news for (e.g., 440 for Team Fortress 2)
-      zh_Hans: 您想获取新闻的游戏AppID（例如，440代表团队要塞2）
+      zh_Hans: 您想获取新闻的游戏 AppID （例如，440代表团队要塞2）
     llm_description: The unique identifier for a game on Steam. For example, 440 is the AppID for Team Fortress 2, 570 for Dota 2, 730 for CS:GO.
     form: llm
 

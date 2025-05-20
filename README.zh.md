@@ -4,6 +4,8 @@
 
 一个用于集成Steam Web API功能的Dify插件，可以查询玩家信息、游戏统计、好友列表等Steam相关数据。
 
+<img src="./picture/Steam-zh.png" alt="Steam插件界面" width="300"/>
+
 ## 关于Steam
 
 Steam是全球最大的电子游戏发行平台之一，由Valve Corporation开发。它不仅是一个游戏商店，还提供社区功能、玩家资料、成就系统和游戏统计等丰富的功能。Steam Web API允许开发者访问这些数据，为用户提供更丰富的游戏体验和数据分析。
@@ -146,4 +148,4 @@ dify-plugin-daemon plugin package ./steam
 
 **作者:** bdim  
 **版本:** 0.0.1  
-**类型:** 工具插件
+**类型:** 工具

@@ -7,7 +7,7 @@ identity:
 description:
   human:
     en_US: Get a list of games owned by a Steam user
-    zh_Hans: 获取Steam用户拥有的游戏列表
+    zh_Hans: 获取 Steam 用户拥有的游戏列表
   llm: Retrieve a comprehensive list of games owned by a Steam user, including playtime statistics and game information.
 parameters:
   - name: steamid
