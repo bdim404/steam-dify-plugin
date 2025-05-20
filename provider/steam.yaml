@@ -2,12 +2,11 @@ identity:
   author: bdim
   name: steam
   label:
-    en_US: Steam API
-    zh_Hans: Steam API
-    pt_BR: steam
+    en_US: Steam
+    zh_Hans: Steam
   description:
     en_US: Access Steam user information via the Steam Web API
-    zh_Hans: 通过Steam Web API访问 Steam 用户信息
+    zh_Hans: 通过 Steam Web API 访问 Steam
   icon: icon.svg
 tools:
   - tools/steam.yaml
@@ -19,7 +18,6 @@ tools:
   - tools/steam_user_stats.yaml
   - tools/steam_owned_games.yaml
   - tools/steam_recently_played.yaml
-
 extra:
   python:
     source: provider/steam.py
