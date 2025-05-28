@@ -86,5 +86,5 @@ When using this plugin, please note the following important information:
 ## Author
 
 **Author:** bdim  
-**Version:** 0.0.2  
+**Version:** 0.0.3  
 **Type:** tool

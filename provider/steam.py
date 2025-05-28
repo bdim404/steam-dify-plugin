@@ -8,62 +8,62 @@ from dify_plugin.errors.tool import ToolProviderCredentialValidationError
 class SteamProvider(ToolProvider):
     def _validate_credentials(self, credentials: dict[str, Any]) -> None:
         try:
-            # 获取API Key
+            # Get API Key
             api_key = credentials.get("api_key")
             if not api_key:
-                raise ToolProviderCredentialValidationError("Steam API Key不能为空")
+                raise ToolProviderCredentialValidationError("Steam API Key cannot be empty")
             
-            # 获取Steam ID
+            # Get Steam ID
             steam_id = credentials.get("steam_id")
             if not steam_id:
-                raise ToolProviderCredentialValidationError("Steam ID不能为空")
+                raise ToolProviderCredentialValidationError("Steam ID cannot be empty")
             
-            # 进行API调用来验证凭证
+            # Make API call to validate credentials
             url = f"http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key={api_key}&steamids={steam_id}"
             response = requests.get(url)
             
-            # 验证响应状态码
+            # Validate response status code
             if response.status_code != 200:
-                raise ToolProviderCredentialValidationError(f"API验证失败，状态码: {response.status_code}")
+                raise ToolProviderCredentialValidationError(f"API validation failed with status code: {response.status_code}")
             
-            # 检查API返回结果
+            # Check API response format
             response_data = response.json()
             if 'response' not in response_data or 'players' not in response_data['response']:
-                raise ToolProviderCredentialValidationError("API返回格式无效")
+                raise ToolProviderCredentialValidationError("Invalid API response format")
             
-            # 验证是否找到了指定的用户
+            # Verify if the specified user was found
             players = response_data['response']['players']
             if not players:
-                raise ToolProviderCredentialValidationError(f"未找到指定的Steam ID: {steam_id}")
+                raise ToolProviderCredentialValidationError(f"No Steam user found with ID: {steam_id}")
                 
         except ToolProviderCredentialValidationError:
-            # 直接重新抛出自定义的验证错误
+            # Directly re-raise custom validation errors
             raise
         except Exception as e:
-            # 处理其他可能的错误
-            raise ToolProviderCredentialValidationError(f"凭证验证失败: {str(e)}")
+            # Handle other possible errors
+            raise ToolProviderCredentialValidationError(f"Credential validation failed: {str(e)}")
     
     def get_player_summary(self, steam_id: str) -> dict:
-        """获取Steam用户的个人资料信息"""
+        """Get Steam user profile information"""
         api_key = self.credentials.get('api_key')
         if not api_key:
-            return {"success": False, "message": "API Key不存在"}
+            return {"success": False, "message": "API Key does not exist"}
         
         try:
             url = f"http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key={api_key}&steamids={steam_id}"
             response = requests.get(url)
             
             if response.status_code != 200:
-                return {"success": False, "message": f"Steam API请求失败: HTTP状态码 {response.status_code}"}
+                return {"success": False, "message": f"Steam API request failed: HTTP status code {response.status_code}"}
             
             data = response.json()
             
             if 'response' not in data or 'players' not in data['response']:
-                return {"success": False, "message": "API返回格式无效"}
+                return {"success": False, "message": "Invalid API response format"}
             
             players = data['response']['players']
             if not players:
-                return {"success": False, "message": f"未找到指定的Steam ID: {steam_id}"}
+                return {"success": False, "message": f"No Steam user found with ID: {steam_id}"}
             
             player = players[0]
             return {
@@ -83,4 +83,4 @@ class SteamProvider(ToolProvider):
             }
             
         except Exception as e:
-            return {"success": False, "message": f"获取玩家资料失败: {str(e)}"}
+            return {"success": False, "message": f"Failed to get player profile: {str(e)}"}
